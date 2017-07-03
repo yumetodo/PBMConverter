@@ -146,6 +146,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="p1encoder.cpp" />
+    <ClCompile Include="p4decoder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="p1encoder.hpp" />
+    <ClInclude Include="p4decoder.hpp" />
+    <ClInclude Include="image.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
