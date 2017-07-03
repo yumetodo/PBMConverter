@@ -8,7 +8,7 @@
 namespace {
 	bool skip_comment(std::istream& is) {
 		bool re = false;
-		for (char c; u8"#"[0] == (c = is.get()); re = true) is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		for (char c; u8"#"[0] == (c = static_cast<char>(is.get())); re = true) is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		is.unget();
 		return re;
 	}
