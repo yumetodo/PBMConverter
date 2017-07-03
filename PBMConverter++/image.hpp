@@ -66,7 +66,7 @@ public:
 
 	std::size_t width() const noexcept
 	{
-		return this->m_data.front().width();
+		return (this->m_data.empty()) ? 0 : this->m_data.front().width();
 	}
 	std::size_t height() const noexcept
 	{
