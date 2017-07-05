@@ -29,15 +29,18 @@ namespace {
 		skip_comment(is);
 		return{ width, height };
 	}
+	std::string read_all(std::istream& is) {
+		std::stringstream ss;
+		//share stream buffer
+		ss << is.rdbuf();
+		//read all
+		return ss.str();
+	}
 }
 PBMImage p4decoder(std::istream& is, bool check_type)
 {
 	PBMImage re = read_header(is, check_type);
-	std::stringstream ss;
-	//share stream buffer
-	ss << is.rdbuf();
-	//read all
-	std::string data = ss.str();
+	std::string data = read_all(is);
 	//P4: 1byte contains 8 pixel informarion(max)
 	const std::size_t width_byte = re.width() / 8 + (0 != (re.width() % 8));
 	//check size
